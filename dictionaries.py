@@ -34,6 +34,22 @@ TEAM_NAMES = {
             "WIZARDS":1610612764
             }
 
+POSITION = {
+            "":"",
+            "FORWARD":"F",
+            "PF":"F",
+            "SF":"F",
+            "POWER FORWARD":"F",
+            "SMALL FORWARD":"F",
+            "CENTER":"C",
+            "GUARD":"G",
+            "G":"G",
+            "PG":"G",
+            "SG":"G",
+            "SHOOTING GUARD":"G",
+            "POINT GUARD":"G",
+            }
+
 PARAMETER_NAME = {
             'SEASON TYPE':'SeasonType',
             'SEASON':'Season',
