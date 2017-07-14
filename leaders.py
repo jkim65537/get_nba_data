@@ -11,6 +11,11 @@
 import requests
 import pandas as pd
 import json
+import sys
+
+filepath = "C:/Users/jkim118/Documents/get_nba_data/"
+sys.path.append(filepath)
+from get_table import get_table
 
 def get_leader_data(season="2016-17",season_type="regular",per_mode="total",stat_cat="points"):
 
@@ -54,16 +59,7 @@ def get_leader_data(season="2016-17",season_type="regular",per_mode="total",stat
                                                                                     StatCategory=data_type['StatCategory'][stat_cat.lower()],
                                                                                     )
 
-    leader_url
-    response = requests.get(leader_url)
-    data = []
-
-    #wait for json to load
-    while len(data) == 0:
-        data = response.json()
-    headers = data['resultSet']['headers']
-    rowdata = data['resultSet']['rowSet']
-    df = pd.DataFrame(rowdata, columns=headers)
+    df = get_table(leader_url)
     return(df)
 if __name__ == "__main__":
     df = get_leader_data()
