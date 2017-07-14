@@ -58,8 +58,8 @@ def get_leader_data(season="2016-17",season_type="regular",per_mode="total",stat
                                                                                     PerMode=data_type['PerMode'][per_mode.lower()],
                                                                                     StatCategory=data_type['StatCategory'][stat_cat.lower()],
                                                                                     )
-
     df = get_table(leader_url)
     return(df)
 if __name__ == "__main__":
     df = get_leader_data()
+    
