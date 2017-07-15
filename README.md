@@ -1,1 +1,123 @@
 # get_nba_data
+
+# Introduction
+Easy way to webscrape and gather data from NBA statistics website (url: http://stats.nba.com/stats/)
+It is by no means complete yet. Still building methods on top of the main API.
+Only works in Python 3.
+
+# API Details
+
+## Installation
+
+This project is available on [PyPi](https://pypi.python.org/pypi/get_nba_data).
+
+To install
+```
+pip install get_nba_data
+```
+
+## API Methods
+
+* `advanced_stats.get_data()` #without parameters
+                                fetches advanced_stats for all players
+* `advanced_stats.get_data(college="washington", position="forward")` #with parameters,
+                            fetches advanced_stats for University of Washington forwards
+
+* `category_leaders.get_data()` #without parameters,
+                            fetches advanced_stats for all players
+* `category_leaders.get_data(stat_cat = "assists")` #with parameters,
+                            fetches data sorted by counts of assists for all players
+
+
+## API Method Parameters for advanced_stats
+Parameters for advanced stats SHOULD match what's being shown here: http://stats.nba.com/players/advanced/#!?sort=PIE&dir=-1
+Parameter inputs are NOT case-sensitive
+You will see a shit ton of parameters right below. You do not HAVE to specify all of them.
+They will just set to include ALL data.
+
+* `season_type`: Str season_type.  Represents the type of season. e.g. "regular season".
+* `season`: Str season.  Represents the season. e.g. "2016-17".
+* `season_segment`: Str season_segment.  Represents the type of season segment. e.g. "entire season".
+* `position`: Str position.  Represents the type of position e.g. "guard".
+* `starter_bench`: Str starter_bench.  Starters or bench players? . e.g. "bench".
+* `experience`: Str experience.  Represents the experience. e.g. "veteran", "rookie", "sophomore".
+* `draft_year`: Str or int draft_year.  Represents the year players were drafted. e.g. "2016", 2016.
+* `draft_pick`: Str draft_pick.  Represents the rounds players were drafted in. e.g. "1st round".
+* `college`: Str college.  Represents the name of the college. e.g. "washington".
+* `country`: Str country.  Represents the name of the country. e.g. "latvia".
+* `weight`: Str weight.  Represents the thresholds for weight. e.g. ">300".
+* `height`: Str height.  Represents the type of season. e.g. "regular season".
+* `team`: Str team.  Represents the team name excluding the location name. e.g. "timberwolves".
+* `opponent`: Str opponent.  Represents the team name excluding the location name. e.g. "warriors".
+* `division`: Str division.  Represents the name of the division. e.g. "pacific".
+* `vs_division`: Str vs_divsion.  Represents the name of the opponent division. e.g. "atlantic".
+* `conference`: Str conference.  Represents the name of the conference. e.g. "west".
+* `vs_conference`: Str vs_conference.  Represents the name of the opponent conference. e.g. "east".
+* `outcome`: Str outcome.  Represents the outcome of the games. e.g. "wins".
+* `location`: Str location.  Represents the type of Home/Away games. e.g. "home", "away".
+* `shot_clock_range`: Str shot_clock_range.  Represents the range of the shot clock. e.g. "24-22".
+* `quarter`: Str or int quarter.  Represents the type of the quarter. e.g. "1st quarter", "OT1".
+* `by_half`: Str by_half.  Represents the type of half. e.g. "first half", "overtime".
+* `playoff_round`: Str playoff_round.  Represents the type of the playoff round. e.g. "conference quarter finals", "finals".
+* `n_games`: Str or int n_games.  Represents the number of games. e.g. "15", 15. #not sure what the range on this is.
+
+## API Method Parameters for category_leaders
+Parameters for category_leaders SHOULD match what's being shown here: http://stats.nba.com/leaders
+Parameter inputs are NOT case-sensitive
+You will see a shit ton of parameters right below. You do not HAVE to specify all of them.
+They will just set to include ALL data.
+
+* `season_type`: Str season_type.  Represents the type of season. e.g. "regular season".
+* `season`: Str season.  Represents the season. e.g. "2016-17".
+* `per_mode`: Str per_mode.  Represents the per mode. e.g. "per 48 minutes".
+* `stat_cat`: Str stat_cat.  Represents the statistical category. e.g. "steals".
+
+## Example Usage
+
+### Get advanced stats data tables for heavy and light former Duke players
+
+```python
+from get_nba_data import advanced_stats
+
+
+def get_fat_duke_players():
+    advanced = advanced_stats()
+    fatties = advanced.get_data(college="duke", weight=">250")
+    return fatties
+
+
+def get_skinny_duke_players():
+    advanced = advanced_stats()
+    sticks = advanced.get_data(college="duke", weight="<200")
+    return sticks
+
+#Or... simply
+advanced = advanced_stats()
+fatties = advanced.get_data(college="duke", weight=">250")
+sticks = advanced.get_data(college="duke", weight="<200")
+
+```
+
+### Get category leaders data tables sorted by assists and points per 48 minutes
+
+```python
+from get_nba_data import category_leaders
+
+
+def get_leaders_assists():
+    leaders = category_leaders()
+    assist_leaders = leaders(stat_cat="assists", per_mode="per 48 minutes")
+    return assist_leaders
+
+
+def get_leaders_points():
+    leaders = category_leaders()
+    points_leaders = leaders(stat_cat="points", per_mode="per 48 minutes")
+    return points_leaders
+
+#Or... simply
+leaders = category_leaders()
+assist_leaders = leaders(stat_cat="assists", per_mode="per 48 minutes")
+points_leaders = leaders(stat_cat="points", per_mode="per 48 minutes")
+
+```
