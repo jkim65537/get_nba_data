@@ -4,9 +4,9 @@ get_nba_data/dictionaries.py
 get_nba_data/get_advanced_stats.py
 get_nba_data/get_leaders.py
 get_nba_data/get_table.py
+get_nba_data/get_url_parameter.py
 get_nba_data.egg-info/PKG-INFO
 get_nba_data.egg-info/SOURCES.txt
 get_nba_data.egg-info/dependency_links.txt
 get_nba_data.egg-info/not-zip-safe
-get_nba_data.egg-info/requires.txt
 get_nba_data.egg-info/top_level.txt
