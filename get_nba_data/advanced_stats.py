@@ -65,7 +65,7 @@ class advanced_stats:
             Period              =get_url_parameter("Period",str(quarter)),
             GameSegment         =get_url_parameter("GameSegment",by_half),
             PORound             =get_url_parameter("PORound",playoff_round)
-            )
+            ).replace(' ', '')
 
         length = 0
         while length == 0:
