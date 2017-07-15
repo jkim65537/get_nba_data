@@ -30,10 +30,16 @@ pip install get_nba_data
 
 
 ## API Method Parameters for advanced_stats
-Parameters for advanced stats SHOULD match what's being shown here: http://stats.nba.com/players/advanced/#!?sort=PIE&dir=-1
-Parameter inputs are NOT case-sensitive
+Parameters for advanced stats SHOULD match what's being shown here: http://stats.nba.com/players/advanced/#!?sort=PIE&dir=-1.
+
+
+Parameter inputs are NOT case-sensitive.
+
+
 You will see a shit ton of parameters right below. You do not HAVE to specify all of them.
-They will just set to include ALL data.
+
+
+Not setting the parameter defaults it to include ALL data for the given parameter.
 
 * `season_type`: Str season_type.  Represents the type of season. e.g. "regular season".
 * `season`: Str season.  Represents the season. e.g. "2016-17".
@@ -62,10 +68,14 @@ They will just set to include ALL data.
 * `n_games`: Str or int n_games.  Represents the number of games. e.g. "15", 15. #not sure what the range on this is.
 
 ## API Method Parameters for category_leaders
-Parameters for category_leaders SHOULD match what's being shown here: http://stats.nba.com/leaders
-Parameter inputs are NOT case-sensitive
+Parameters for category_leaders SHOULD match what's being shown here: http://stats.nba.com/leaders.
+
+
+Parameter inputs are NOT case-sensitive.
 You will see a shit ton of parameters right below. You do not HAVE to specify all of them.
-They will just set to include ALL data.
+
+
+Not setting the parameter defaults it to include ALL data for the given parameter.
 
 * `season_type`: Str season_type.  Represents the type of season. e.g. "regular season".
 * `season`: Str season.  Represents the season. e.g. "2016-17".
