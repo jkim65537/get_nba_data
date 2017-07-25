@@ -2,11 +2,10 @@ import requests
 import pandas as pd
 import json
 import os
-from flask import request
+#from flask import request
 
 def get_table(url):
-    user_agent = request.headers.get('User-Agent')
-    headers = {'User-Agent': user_agent}
+    headers = {'User-Agent': 'Mozilla/5.0'}
     try:
         response = requests.get(url,headers=headers,timeout = 10)
     except:
